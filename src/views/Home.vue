@@ -7,7 +7,7 @@
           :key="ckey"
           :index="childItem.path"
         >
-          <a :href="'/home/'+childItem.path">{{childItem.description}}</a>
+          <a :href="'#/home/'+childItem.path">{{childItem.description}}</a>
         </el-menu-item>
       </el-menu>
     </el-header>

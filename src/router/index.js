@@ -5,7 +5,7 @@ import defaultRoute from "./route_config.js";
 Vue.use(Router)
 
 export default new Router({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes: defaultRoute
 });
