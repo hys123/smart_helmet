@@ -5,6 +5,8 @@
   "author": "cobraj <anjunn@163.co>",
   "private": true,
   "scripts": {
+    "pro-build": "vue-cli-service build",
+    "dev-build": "vue-cli-service build --mode development",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",

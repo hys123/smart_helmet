@@ -1,14 +1,13 @@
 <template>
   <el-container>
     <el-header>
-      <el-menu class="el-menu-demo" mode="horizontal">
+      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
         <el-menu-item
           v-for="(childItem,ckey) in defaultRoute[2].children"
           :key="ckey"
           :index="childItem.path"
-        >
-          <a :href="'#/home/'+childItem.path">{{childItem.description}}</a>
-        </el-menu-item>
+          @click="linkTo(childItem.path)"
+        >{{childItem.description}}</el-menu-item>
       </el-menu>
     </el-header>
     <el-container>
@@ -24,7 +23,22 @@
 import defaultRoute from "../router/route_config.js";
 export default {
   data() {
-    return { defaultRoute };
+    let activeIndex = "mapView";
+    let index = location.hash.lastIndexOf("/") + 1;
+    let tmp = location.hash.substr(index);
+    if (location.hash.split("/").length > 2 && tmp) {
+      activeIndex = tmp;
+    }
+    console.log(activeIndex);
+    return {
+      defaultRoute,
+      activeIndex
+    };
+  },
+  methods: {
+    linkTo(path) {
+      location.hash = "#/home/" + path;
+    }
   }
 };
 </script>
